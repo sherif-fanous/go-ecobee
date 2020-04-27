@@ -1,3 +1,6 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/sfanous/go-ecobee)](https://goreportcard.com/report/github.com/sfanous/go-ecobee)
+[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/sfanous/go-ecobee)
+
 # Go client for the ecobee API
 
 Currently, does not support any requests that are accessible by EMS or Utility accounts only. If you strongly feel the client needs to support these requests please log an enhancement request, and I'll consider it.
