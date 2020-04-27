@@ -27,7 +27,7 @@ const (
 func (c *Client) requestTokens(ctx context.Context, queryParameters url.Values) (*TokensSuccessResponse, error) {
 	nowUTC := time.Now().UTC()
 
-	resp, err := c.post(ctx, fmt.Sprintf("%s%s", apiBaseURL, tokenEndpoint), queryParameters, nil, nil)
+	resp, err := c.post(ctx, fmt.Sprintf("%s%s", c.apiBaseURL, tokenEndpoint), queryParameters, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", tokenEndpoint, err)
 	}
@@ -64,7 +64,7 @@ func (c *Client) PINAuthorization(ctx context.Context, scope Scope) (*PINAuthori
 	queryParameters.Set("client_id", c.applicationKey)
 	queryParameters.Set("scope", string(scope))
 
-	resp, err := c.get(ctx, fmt.Sprintf("%s%s", apiBaseURL, authorizeEndpoint), queryParameters, nil)
+	resp, err := c.get(ctx, fmt.Sprintf("%s%s", c.apiBaseURL, authorizeEndpoint), queryParameters, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", authorizeEndpoint, err)
 	}
