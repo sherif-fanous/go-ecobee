@@ -111,7 +111,7 @@ type Thermostat struct {
 	NotificationSettings *NotificationSettings `json:"notificationSettings,omitempty"`
 
 	// The Privacy object containing the privacy settings for the Thermostat. Note:
-	// access to this object is restricted to callers with implict authentication.
+	// access to this object is restricted to callers with implicit authentication.
 	Privacy *ThermostatPrivacy `json:"privacy,omitempty"`
 
 	// The Version object containing the firmware version information for the

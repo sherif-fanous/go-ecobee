@@ -21,27 +21,27 @@ type SecuritySettings struct {
 	// enabling access control. See the callout above for more information.
 	UserAccessCode *string `json:"userAccessCode,omitempty"`
 
-	// The flag for determing whether there are any restrictions on the thermostat
+	// The flag for determining whether there are any restrictions on the thermostat
 	// regarding access control. Default value is false. If all other values are
 	// true this value will default to true.
 	AllUserAccess *bool `json:"allUserAccess,omitempty"`
 
-	// The flag for determing whether there are any restrictions on the thermostat
+	// The flag for determining whether there are any restrictions on the thermostat
 	// regarding access control to the Thermostat.Program. Default value is false,
 	// unless allUserAccess is true.
 	ProgramAccess *bool `json:"programAccess,omitempty"`
 
-	// The flag for determing whether there are any restrictions on the thermostat
+	// The flag for determining whether there are any restrictions on the thermostat
 	// regarding access control to the Thermostat system and settings. Default
 	// value is false, unless allUserAccess is true.
 	DetailsAccess *bool `json:"detailsAccess,omitempty"`
 
-	// The flag for determing whether there are any restrictions on the thermostat
+	// The flag for determining whether there are any restrictions on the thermostat
 	// regarding access control to the Thermostat quick save functionality. Default
 	// value is false, unless allUserAccess is true.
 	QuickSaveAccess *bool `json:"quickSaveAccess,omitempty"`
 
-	// The flag for determing whether there are any restrictions on the thermostat
+	// The flag for determining whether there are any restrictions on the thermostat
 	// regarding access control to the Thermostat vacation functionality. Default
 	// value is false, unless allUserAccess is true.
 	VacationAccess *bool `json:"vacationAccess,omitempty"`

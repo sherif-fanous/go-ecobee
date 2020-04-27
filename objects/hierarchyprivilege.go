@@ -13,7 +13,7 @@ type HierarchyPrivilege struct {
 	// The path of the management set.
 	SetPath *string `json:"setPath,omitempty"`
 
-	// The name of the managment set.
+	// The name of the management set.
 	SetName *string `json:"setName,omitempty"`
 
 	// The user name of the user associated with this privilege.

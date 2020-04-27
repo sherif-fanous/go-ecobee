@@ -85,7 +85,7 @@ type Settings struct {
 	// Whether the thermostat is in frost control mode.
 	CondensationAvoid *bool `json:"condensationAvoid,omitempty"`
 
-	// Whether the thermostat is configured to report in degrees Celcius.
+	// Whether the thermostat is configured to report in degrees Celsius.
 	UseCelsius *bool `json:"useCelsius,omitempty"`
 
 	// Whether the thermostat is using 12hr time format.
@@ -188,7 +188,7 @@ type Settings struct {
 	DehumidifierLevel *int `json:"dehumidifierLevel,omitempty"`
 
 	// Whether the thermostat should use AC overcool to dehumidify. When set to
-	// true a postive integer value must be supplied for dehumidifyOvercoolOffset
+	// true a positive integer value must be supplied for dehumidifyOvercoolOffset
 	// otherwise an API validation exception will be thrown.
 	DehumidifyWithAC *bool `json:"dehumidifyWithAC,omitempty"`
 
@@ -310,7 +310,7 @@ type Settings struct {
 	// thermostat.
 	TempAlertNotifyTechnician *bool `json:"tempAlertNotifyTechnician,omitempty"`
 
-	// The dollar amount the owner specifies for their desired maximum electricy bill.
+	// The dollar amount the owner specifies for their desired maximum electricity bill.
 	MonthlyElectricityBillLimit *int `json:"monthlyElectricityBillLimit,omitempty"`
 
 	// Whether electricity bill alerts are enabled.
@@ -319,7 +319,7 @@ type Settings struct {
 	// Whether electricity bill projection alerts are enabled
 	EnableProjectedElectricityBillAlert *bool `json:"enableProjectedElectricityBillAlert,omitempty"`
 
-	// The day of the month the owner's electricty usage is billed.
+	// The day of the month the owner's electricity usage is billed.
 	ElectricityBillingDayOfMonth *int `json:"electricityBillingDayOfMonth,omitempty"`
 
 	// The owners billing cycle duration in months.
@@ -346,7 +346,7 @@ type Settings struct {
 	// fan will be engaged for 15min/hour.
 	SmartCirculation *bool `json:"smartCirculation,omitempty"`
 
-	// When set to true if a sensor has detected presense for more than 10 minutes
+	// When set to true if a sensor has detected presence for more than 10 minutes
 	// then include that sensor in temp average. If no activity has been seen on a
 	// sensor for more than 1 hour then remove this sensor from temperature
 	// average.

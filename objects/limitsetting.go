@@ -15,7 +15,7 @@ package objects
 // behaviour the API user needs to be aware of:
 type LimitSetting struct {
 	// The value of the limit to set. For temperatures the value is expressed as
-	// degrees Fahrenheit, multipled by 10. For humidity values are expressed as a
+	// degrees Fahrenheit, multiplied by 10. For humidity values are expressed as a
 	// percentage from 5 to 95. See here for more information.
 	Limit *int `json:"limit,omitempty"`
 

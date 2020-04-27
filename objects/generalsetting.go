@@ -18,6 +18,6 @@ type GeneralSetting struct {
 	Type *string `json:"type,omitempty"`
 
 	// Boolean value representing whether or not alerts/reminders should be sent to
-	// the technician/contractor assoicated with the thermostat.
+	// the technician/contractor associated with the thermostat.
 	RemindTechnician *bool `json:"remindTechnician,omitempty"`
 }

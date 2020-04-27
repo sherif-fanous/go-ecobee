@@ -54,7 +54,7 @@ type ExtendedRuntime struct {
 	// The last three 5 minute desired de-humidification readings.
 	DesiredDehumidity []int `json:"desiredDehumidity,omitempty"`
 
-	// The last three 5 minute desired Demand Management temeprature offsets. This
+	// The last three 5 minute desired Demand Management temperature offsets. This
 	// value is Demand Management adjustment value which was applied by the
 	// thermostat. If the thermostat decided not to honour the adjustment, it will
 	// send 0 for the interval. Compare these values with the values sent in the DM

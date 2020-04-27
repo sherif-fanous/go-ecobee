@@ -80,7 +80,7 @@ type Selection struct {
 	IncludeNotificationSettings *bool `json:"includeNotificationSettings,omitempty"`
 
 	// Include the current thermostat privacy settings. Note: access to this object
-	// is restricted to callers with implict authentication, setting this value to
+	// is restricted to callers with implicit authentication, setting this value to
 	// true without proper credentials will result in an authentication exception.
 	IncludePrivacy *bool `json:"includePrivacy,omitempty"`
 
