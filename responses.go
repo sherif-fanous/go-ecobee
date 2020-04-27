@@ -145,7 +145,7 @@ func (g *GroupSuccessResponse) UnmarshalJSON(data []byte) error {
 
 // Groups returns the response's groups.
 func (g *GroupSuccessResponse) Groups() []objects.Group {
-	groups := make([]objects.Group, 0, len(g.groups))
+	groups := make([]objects.Group, len(g.groups), len(g.groups))
 	copy(groups, g.groups)
 
 	return groups
@@ -202,7 +202,7 @@ func (m *MeterReportSuccessResponse) UnmarshalJSON(data []byte) error {
 
 // ReportList returns the response's status report list.
 func (m *MeterReportSuccessResponse) ReportList() []objects.MeterReport {
-	reportList := make([]objects.MeterReport, 0, len(m.reportList))
+	reportList := make([]objects.MeterReport, len(m.reportList), len(m.reportList))
 	copy(reportList, m.reportList)
 
 	return reportList
@@ -348,7 +348,7 @@ func (m *RuntimeReportSuccessResponse) UnmarshalJSON(data []byte) error {
 
 // ReportList returns the response's status report list.
 func (m *RuntimeReportSuccessResponse) ReportList() []objects.RuntimeReport {
-	reportList := make([]objects.RuntimeReport, 0, len(m.reportList))
+	reportList := make([]objects.RuntimeReport, len(m.reportList), len(m.reportList))
 	copy(reportList, m.reportList)
 
 	return reportList
@@ -356,7 +356,7 @@ func (m *RuntimeReportSuccessResponse) ReportList() []objects.RuntimeReport {
 
 // SensorList returns the response's status sensor list.
 func (m *RuntimeReportSuccessResponse) SensorList() []objects.RuntimeSensorReport {
-	sensorList := make([]objects.RuntimeSensorReport, 0, len(m.sensorList))
+	sensorList := make([]objects.RuntimeSensorReport, len(m.sensorList), len(m.sensorList))
 	copy(sensorList, m.sensorList)
 
 	return sensorList
@@ -423,7 +423,7 @@ func (t *ThermostatSuccessResponse) Page() *objects.Page {
 
 // ThermostatList returns the response's thermostat list.
 func (t *ThermostatSuccessResponse) ThermostatList() []objects.Thermostat {
-	thermostatList := make([]objects.Thermostat, 0, len(t.thermostatList))
+	thermostatList := make([]objects.Thermostat, len(t.thermostatList), len(t.thermostatList))
 	copy(thermostatList, t.thermostatList)
 
 	return thermostatList
@@ -491,7 +491,7 @@ func (t *ThermostatSummarySuccessResponse) UnmarshalJSON(data []byte) error {
 
 // RevisionList returns the response's revision list.
 func (t *ThermostatSummarySuccessResponse) RevisionList() []string {
-	revisionList := make([]string, 0, len(t.revisionList))
+	revisionList := make([]string, len(t.revisionList), len(t.revisionList))
 	copy(revisionList, t.revisionList)
 
 	return revisionList
@@ -504,7 +504,7 @@ func (t *ThermostatSummarySuccessResponse) ThermostatCount() int {
 
 // StatusList returns the response's status list.
 func (t *ThermostatSummarySuccessResponse) StatusList() []string {
-	statusList := make([]string, 0, len(t.statusList))
+	statusList := make([]string, len(t.statusList), len(t.statusList))
 	copy(statusList, t.statusList)
 
 	return statusList
