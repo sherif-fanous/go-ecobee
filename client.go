@@ -14,6 +14,8 @@ const (
 )
 
 type client struct {
+	apiBaseURL            string
+	apiVersion            int
 	applicationKey        string
 	authorizationToken    string
 	tokenType             string
@@ -27,7 +29,7 @@ type client struct {
 
 type clientOptionalParameters func(*Client)
 
-// A Client is an ecobee API client. Its zero value is not a  usable client.
+// A Client is an ecobee API client. Its zero value is not a usable ecobee client.
 type Client struct {
 	client
 }
@@ -37,6 +39,8 @@ type Client struct {
 func NewClient(optionalParameters ...clientOptionalParameters) *Client {
 	client := &Client{
 		client: client{
+			apiBaseURL: apiBaseURL,
+			apiVersion: apiVersion,
 			httpClient: &http.Client{},
 		},
 	}
@@ -46,6 +50,22 @@ func NewClient(optionalParameters ...clientOptionalParameters) *Client {
 	}
 
 	return client
+}
+
+// WithAPIBaseURL returns a function that initializes a Client with an
+// API base URL.
+func WithAPIBaseURL(apiBaseURL string) func(*Client) {
+	return func(c *Client) {
+		c.apiBaseURL = apiBaseURL
+	}
+}
+
+// WithAPIVersion returns a function that initializes a Client with an
+// API version.
+func WithAPIVersion(apiVersion int) func(*Client) {
+	return func(c *Client) {
+		c.apiVersion = apiVersion
+	}
 }
 
 // WithApplicationKey returns a function that initializes a Client with an
@@ -104,6 +124,14 @@ func WithRefreshTokenExpiresOn(refreshTokenExpiresOn time.Time) func(*Client) {
 	}
 }
 
+// WithHTTPClient returns a function that initializes a Client with an HTTP
+// client.
+func WithHTTPClient(httpClient *http.Client) func(*Client) {
+	return func(c *Client) {
+		c.httpClient = httpClient
+	}
+}
+
 // WithCustomHTTPHeaders returns a function that initializes a Client with
 // custom HTTP headers.
 func WithCustomHTTPHeaders(customHTTPHeaders map[string]string) func(*Client) {
@@ -115,6 +143,8 @@ func WithCustomHTTPHeaders(customHTTPHeaders map[string]string) func(*Client) {
 // GobDecode implements the gob.GobDecoder interface.
 func (c *Client) GobDecode(b []byte) error {
 	temp := struct {
+		APIBaseURL            string
+		APIVersion            int
 		ApplicationKey        string
 		AuthorizationToken    string
 		TokenType             string
@@ -129,6 +159,8 @@ func (c *Client) GobDecode(b []byte) error {
 
 	_ = dec.Decode(&temp)
 
+	c.apiBaseURL = temp.APIBaseURL
+	c.apiVersion = temp.APIVersion
 	c.applicationKey = temp.ApplicationKey
 	c.authorizationToken = temp.AuthorizationToken
 	c.tokenType = temp.TokenType
@@ -144,6 +176,8 @@ func (c *Client) GobDecode(b []byte) error {
 // GobEncode implements the gob.GobEncoder interface.
 func (c *Client) GobEncode() ([]byte, error) {
 	temp := struct {
+		APIBaseURL            string
+		APIVersion            int
 		ApplicationKey        string
 		AuthorizationToken    string
 		TokenType             string
@@ -153,6 +187,8 @@ func (c *Client) GobEncode() ([]byte, error) {
 		RefreshTokenExpiresOn time.Time
 		CustomHTTPHeaders     map[string]string
 	}{
+		APIBaseURL:            c.apiBaseURL,
+		APIVersion:            c.apiVersion,
 		ApplicationKey:        c.applicationKey,
 		AuthorizationToken:    c.authorizationToken,
 		TokenType:             c.tokenType,
@@ -174,6 +210,8 @@ func (c *Client) GobEncode() ([]byte, error) {
 // String returns a string representing an indented JSON encoding of the client.
 func (c *Client) String() string {
 	temp := struct {
+		APIBaseURL            string    `json:""`
+		APIVersion            int       `json:""`
 		ApplicationKey        string    `json:""`
 		AuthorizationToken    string    `json:""`
 		TokenType             string    `json:""`
@@ -182,6 +220,8 @@ func (c *Client) String() string {
 		RefreshToken          string    `json:""`
 		RefreshTokenExpiresOn time.Time `json:""`
 	}{
+		APIBaseURL:            c.apiBaseURL,
+		APIVersion:            c.apiVersion,
 		ApplicationKey:        c.applicationKey,
 		AuthorizationToken:    c.authorizationToken,
 		TokenType:             c.tokenType,
@@ -194,6 +234,26 @@ func (c *Client) String() string {
 	data, _ := json.MarshalIndent(&temp, "", "    ")
 
 	return string(data)
+}
+
+// APIBaseURL returns the client's API base URL.
+func (c *Client) APIBaseURL() string {
+	return c.apiBaseURL
+}
+
+// SetAPIBaseURL sets the client's API base URL.
+func (c *Client) SetAPIBaseURL(apiBaseURL string) {
+	c.apiBaseURL = apiBaseURL
+}
+
+// APIVersion returns the client's API version.
+func (c *Client) APIVersion() int {
+	return c.apiVersion
+}
+
+// SetAPIVersion sets the client's API version.
+func (c *Client) SetAPIVersion(apiVersion int) {
+	c.apiVersion = apiVersion
 }
 
 // ApplicationKey returns the client's application key.
@@ -216,7 +276,7 @@ func (c *Client) AccessToken() string {
 	return c.accessToken
 }
 
-// AccessTokenExpiresOn returns when the client's access token expires
+// AccessTokenExpiresOn returns when the client's access token expires.
 func (c *Client) AccessTokenExpiresOn() time.Time {
 	return c.accessTokenExpiresOn
 }
@@ -226,12 +286,12 @@ func (c *Client) RefreshToken() string {
 	return c.refreshToken
 }
 
-// RefreshTokenExpiresOn returns when the client's refresh token expires
+// RefreshTokenExpiresOn returns when the client's refresh token expires.
 func (c *Client) RefreshTokenExpiresOn() time.Time {
 	return c.refreshTokenExpiresOn
 }
 
-// CustomHTTPHeaders returns the client's custom HTTP headers
+// CustomHTTPHeaders returns the client's custom HTTP headers.
 func (c *Client) CustomHTTPHeaders() map[string]string {
 	customHTTPHeaders := make(map[string]string)
 
@@ -242,7 +302,12 @@ func (c *Client) CustomHTTPHeaders() map[string]string {
 	return customHTTPHeaders
 }
 
-// SetCustomHTTPHeaders sets the client's custom HTTP headers
+// SetHTTPClient sets the client's HTTP client.
+func (c *Client) SetHTTPClient(httpClient *http.Client) {
+	c.httpClient = httpClient
+}
+
+// SetCustomHTTPHeaders sets the client's custom HTTP headers.
 func (c *Client) SetCustomHTTPHeaders(customHTTPHeaders map[string]string) {
 	c.customHTTPHeaders = customHTTPHeaders
 }
