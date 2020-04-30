@@ -49,7 +49,7 @@ const (
 )
 
 // An AcknowledgeParameters specifies the request parameters of the Acknowledge
-//// method.
+// method.
 type AcknowledgeParameters struct {
 	// The thermostat identifier to acknowledge the alert for.
 	ThermostatIdentifier *string
