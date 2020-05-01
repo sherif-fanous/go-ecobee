@@ -68,7 +68,7 @@ func (c *Client) MeterReport(ctx context.Context, selection *objects.Selection, 
 	queryParameters.Set("format", "json")
 	queryParameters.Set("body", string(data))
 
-	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, meterReportEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}})
+	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, meterReportEndpoint), queryParameters, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", meterReportEndpoint, err)
 	}
@@ -136,7 +136,7 @@ func (c *Client) RuntimeReport(ctx context.Context, selection *objects.Selection
 	queryParameters.Set("format", "json")
 	queryParameters.Set("body", string(data))
 
-	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, runtimeReportEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}})
+	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, runtimeReportEndpoint), queryParameters, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", runtimeReportEndpoint, err)
 	}

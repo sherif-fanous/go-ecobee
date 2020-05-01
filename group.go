@@ -33,7 +33,7 @@ func (c *Client) Group(ctx context.Context, selection *objects.Selection) (*Grou
 	queryParameters.Set("format", "json")
 	queryParameters.Set("body", string(data))
 
-	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, groupEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}})
+	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, groupEndpoint), queryParameters, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", groupEndpoint, err)
 	}
@@ -73,7 +73,7 @@ func (c *Client) UpdateGroup(ctx context.Context, selection *objects.Selection, 
 	queryParameters := url.Values{}
 	queryParameters.Set("format", "json")
 
-	resp, err := c.post(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, groupEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}}, bytes.NewBuffer(data))
+	resp, err := c.post(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, groupEndpoint), queryParameters, nil, bytes.NewBuffer(data))
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", groupEndpoint, err)
 	}

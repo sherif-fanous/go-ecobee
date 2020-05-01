@@ -35,7 +35,7 @@ func (c *Client) Thermostat(ctx context.Context, selection *objects.Selection, p
 	queryParameters := url.Values{}
 	queryParameters.Set("json", string(data))
 
-	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, thermostatEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}})
+	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, thermostatEndpoint), queryParameters, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", thermostatEndpoint, err)
 	}
@@ -73,7 +73,7 @@ func (c *Client) ThermostatSummary(ctx context.Context, selection *objects.Selec
 	queryParameters := url.Values{}
 	queryParameters.Set("json", string(data))
 
-	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, thermostatSummaryEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}})
+	resp, err := c.get(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, thermostatSummaryEndpoint), queryParameters, nil)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", thermostatSummaryEndpoint, err)
 	}
@@ -115,7 +115,7 @@ func (c *Client) UpdateThermostat(ctx context.Context, selection *objects.Select
 	queryParameters := url.Values{}
 	queryParameters.Set("format", "json")
 
-	resp, err := c.post(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, thermostatEndpoint), queryParameters, map[string][]string{"Authorization": {fmt.Sprintf("%s %s", c.tokenType, c.accessToken)}}, bytes.NewBuffer(data))
+	resp, err := c.post(ctx, fmt.Sprintf("%s%d/%s", c.apiBaseURL, c.apiVersion, thermostatEndpoint), queryParameters, nil, bytes.NewBuffer(data))
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", thermostatEndpoint, err)
 	}
