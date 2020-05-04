@@ -1,5 +1,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/sfanous/go-ecobee)](https://goreportcard.com/report/github.com/sfanous/go-ecobee)
 [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/sfanous/go-ecobee)
+[![Release](https://img.shields.io/github/v/release/sfanous/go-ecobee.svg?style=flat)](https://github.com/sfanous/go-ecobee/releases/latest)
 
 # Go client for the ecobee API
 
