@@ -105,4 +105,8 @@ type Event struct {
 	// Used for display purposes to indicate what climate (if any) is being used
 	// for the hold.
 	HoldClimateRef *string `json:"holdClimateRef,omitempty"`
+
+	// What's the default Fan Speed on a HVAC with multi-span. Accepted values:
+	// low, medium, high, and optimized. 
+	FanSpeed *string `json:"fanSpeed,omitempty"`
 }
