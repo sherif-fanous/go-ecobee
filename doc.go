@@ -4,14 +4,14 @@ Package ecobee provides a Go client for the ecobee API.
 For more information about the ecobee API, see the documentation:
 https://www.ecobee.com/home/developer/api/introduction/index.shtml
 
-Authentication
+# Authentication
 
 By design, the ecobee Client accepts any http.Client so OAuth2 requests can be
 made by using the appropriate authenticated client.
 Use the https://github.com/golang/oauth2 package to obtain an http.Client which
 transparently authorizes requests.
 
-Usage
+# Usage
 
 You use the library by creating a Client and invoking its methods. The client
 can be created manually with NewClient.
@@ -46,8 +46,8 @@ The below example illustrates how to:
 
 		"golang.org/x/oauth2"
 
-		"github.com/sfanous/go-ecobee"
-		"github.com/sfanous/go-ecobee/objects"
+		"github.com/sherif-fanous/go-ecobee"
+		"github.com/sherif-fanous/go-ecobee/objects"
 	)
 
 	var applicationKey string
@@ -192,6 +192,5 @@ The below example illustrates how to:
 			return
 		}
 	}
-
 */
 package ecobee

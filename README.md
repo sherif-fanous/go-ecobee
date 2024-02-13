@@ -1,6 +1,6 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/sfanous/go-ecobee)](https://goreportcard.com/report/github.com/sfanous/go-ecobee)
-[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/sfanous/go-ecobee)
-[![Release](https://img.shields.io/github/v/release/sfanous/go-ecobee.svg?style=flat)](https://github.com/sfanous/go-ecobee/releases/latest)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sherif-fanous/go-ecobee)](https://goreportcard.com/report/github.com/sherif-fanous/go-ecobee)
+[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/sherif-fanous/go-ecobee)
+[![Release](https://img.shields.io/github/v/release/sfanous/go-ecobee.svg?style=flat)](https://github.com/sherif-fanous/go-ecobee/releases/latest)
 
 # Go client for the ecobee API
 
@@ -31,8 +31,8 @@ import (
 
 	"golang.org/x/oauth2"
 
-	"github.com/sfanous/go-ecobee"
-	"github.com/sfanous/go-ecobee/objects"
+	"github.com/sherif-fanous/go-ecobee"
+	"github.com/sherif-fanous/go-ecobee/objects"
 )
 
 var applicationKey string
@@ -180,4 +180,4 @@ func main() {
 
 ```
 
-[Full documentation is available on GoDoc.](https://godoc.org/github.com/sfanous/go-ecobee)
+[Full documentation is available on GoDoc.](https://godoc.org/github.com/sherif-fanous/go-ecobee)

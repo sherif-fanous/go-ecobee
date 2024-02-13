@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/sfanous/go-ecobee/objects"
+	"github.com/sherif-fanous/go-ecobee/objects"
 	"io"
 	"net/http"
 )

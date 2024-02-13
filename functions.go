@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/sfanous/go-ecobee/objects"
+	"github.com/sherif-fanous/go-ecobee/objects"
 )
 
 // An AckType specifies an acknowledgment type.

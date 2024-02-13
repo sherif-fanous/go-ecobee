@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/sfanous/go-ecobee/objects"
+	"github.com/sherif-fanous/go-ecobee/objects"
 )
 
 const (

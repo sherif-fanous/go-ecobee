@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/sfanous/go-ecobee/objects"
+	"github.com/sherif-fanous/go-ecobee/objects"
 	"io"
 	"io/ioutil"
 	"net/url"

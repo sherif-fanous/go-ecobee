@@ -1,5 +1,9 @@
 # Changes
 
+## v0.3.1
+
+- Update dependencies.
+
 ## v0.3.0
 
 - Migrate from Goland to VSCode.
