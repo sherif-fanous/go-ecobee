@@ -1,5 +1,10 @@
 # Changes
 
+## v0.3.3
+
+- Bump Go to 1.25.0.
+- Update dependencies.
+
 ## v0.3.2
 
 - Update dependencies.
